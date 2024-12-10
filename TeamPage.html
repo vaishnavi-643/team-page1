@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams</title>
+    <!-- Correct way to link Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .team-content {
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            /* Increase the font size for the navbar items */
+            transition: font-size 0.3s ease;
+            /* Smooth transition for font size change */
+        }
+
+        .nav-link:hover {
+            font-size: 1.3rem;
+            /* Increase the font size slightly on hover */
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            /* Adjust position of the line */
+            left: 0;
+            width: 0;
+            height: 3px;
+            /* Thickness of the line */
+            background-color: transparent;
+            /* Default to transparent */
+            transition: width 0.3s ease-in-out;
+            /* Smooth animation */
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            /* Line extends across the button */
+        }
+
+        .home-link:hover::after {
+            background-color: #EA4335;
+            /* Red for Home */
+        }
+
+        .events-link:hover::after {
+            background-color: #34A853;
+            /* Green for Events */
+        }
+
+        .team-link:hover::after {
+            background-color: #4285F4;
+            /* Blue for Team */
+        }
+
+        .blog-link:hover::after {
+            background-color: #FBBC05;
+            /* Yellow for Blog */
+        }
+
+        .google-blue {
+            color: #4285F4;
+        }
+
+        .google-red {
+            color: #EA4335;
+        }
+
+        .google-yellow {
+            color: #FBBC05;
+        }
+
+        .google-green {
+            color: #34A853;
+        }
+
+        .team-button {
+            color: #374151;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800 font-sans">
+    <!-- Header -->
+    <header class="bg-white sticky top-0 z-50 flex justify-between items-center py-4 px-8 shadow-md">
+        <div class="Nav_left">
+            <a href="/#home">
+                <img src="/assets/gdg_logo.png" alt="Logo" class="h-10">
+            </a>
+        </div>
+        <nav class="flex gap-12">
+            <a href="/home" class="nav-link home-link relative text-gray-600 font-bold hover:text-gray-900">
+                Home
+            </a>
+            <a href="/events" class="nav-link events-link relative text-gray-600 font-bold hover:text-gray-900">
+                Events
+            </a>
+            <a href="/ourteam" class="nav-link team-link relative text-gray-600 font-bold hover:text-gray-900">
+                Team
+            </a>
+            <a href="/blog" class="nav-link blog-link relative text-gray-600 font-bold hover:text-gray-900 mr-20">
+                Blog
+            </a>
+        </nav>
+    </header>
+
+    <!-- Team Section -->
+    <section class="team-section px-8 py-12">
+        <h1 class="text-center text-4xl font-bold google-blue mb-8">Meet Our Team</h1>
+        <!-- Buttons -->
+        <div class="flex justify-center space-x-4 mb-8">
+            <div class="hidden md:flex gap-6 bg-gray-100 py-2 px-8 rounded-full shadow-md">
+                <button onclick="showTeam('lead')" class="team-button active text-gray-800 px-4 py-2 rounded-full font-medium hover:text-red-500 transition duration-300 ease-in-out">Lead</button>
+                <button onclick="showTeam('tech')" class="team-button text-gray-800 px-4 py-2 rounded-full font-medium hover:text-green-500 transition duration-300 ease-in-out">Tech</button>
+                <button onclick="showTeam('graphicsandtrendsetter')" class="team-button text-gray-800 px-4 py-2 rounded-full font-medium hover:text-yellow-500 transition duration-300 ease-in-out">Graphics and Trendsetter</button>
+                <button onclick="showTeam('eventscape')" class="team-button text-gray-800 px-4 py-2 rounded-full font-medium hover:text-blue-500 transition duration-300 ease-in-out">Eventscape</button>
+                <button onclick="showTeam('cinecraft')" class="team-button text-gray-800 px-4 py-2 rounded-full font-medium hover:text-red-600 transition duration-300 ease-in-out">Cinecraft</button>
+            </div>
+        </div>
+        
+
+
+        <!-- Team Panels -->
+        <div class="relative overflow-hidden">
+            <div class="flex transition-transform team-content" id="teamContent">
+                <!-- Lead Team -->
+                <div id="lead" class="team-panel min-w-full">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <!-- Team Member 1 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Anant Pawar"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Vaishnavi Verma</h3>
+                            <p class="text-gray-600">Team Lead</p>
+                        </div>
+
+                        <!-- Team Member 2 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Aniket Singh"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Aniket Singh</h3>
+                            <p class="text-gray-600">Co-Team Lead</p>
+                        </div>
+
+                        <!-- Team Member 3 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Ravi Patel"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Ravi Patel</h3>
+                            <p class="text-gray-600">Tech Specialist</p>
+                        </div>
+
+                        <!-- Team Member 4 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Pooja Yadav"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Pooja Yadav</h3>
+                            <p class="text-gray-600">Graphics & Design</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tech" class="team-panel min-w-full">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="John Doe"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">John Doe</h3>
+                            <p class="text-gray-600">Tech Specialist</p>
+                        </div>
+                        <!-- Team Member 1 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Anant Pawar"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Vaishnavi Verma</h3>
+                            <p class="text-gray-600">Team Lead</p>
+                        </div>
+
+                        <!-- Team Member 2 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Aniket Singh"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Aniket Singh</h3>
+                            <p class="text-gray-600">Co-Team Lead</p>
+                        </div>
+
+                        <!-- Team Member 3 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Ravi Patel"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Ravi Patel</h3>
+                            <p class="text-gray-600">Tech Specialist</p>
+                        </div>
+
+                        <!-- Team Member 4 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Pooja Yadav"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Pooja Yadav</h3>
+                            <p class="text-gray-600">Graphics & Design</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="graphicsandtrendsetter" class="team-panel min-w-full">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="John Doe"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">John Doe</h3>
+                            <p class="text-gray-600">Tech Specialist</p>
+                        </div>
+                        <!-- Team Member 1 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Anant Pawar"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Vaishnavi Verma</h3>
+                            <p class="text-gray-600">Team Lead</p>
+                        </div>
+
+                        <!-- Team Member 2 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Aniket Singh"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Aniket Singh</h3>
+                            <p class="text-gray-600">Co-Team Lead</p>
+                        </div>
+
+                        <!-- Team Member 3 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Ravi Patel"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Ravi Patel</h3>
+                            <p class="text-gray-600">Tech Specialist</p>
+                        </div>
+
+                        <!-- Team Member 4 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Pooja Yadav"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Pooja Yadav</h3>
+                            <p class="text-gray-600">Graphics & Design</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="eventscape" class="team-panel min-w-full">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="John Doe"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">John Doe</h3>
+                            <p class="text-gray-600">Tech Specialist</p>
+                        </div>
+                        <!-- Team Member 1 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Anant Pawar"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Vaishnavi Verma</h3>
+                            <p class="text-gray-600">Team Lead</p>
+                        </div>
+
+                        <!-- Team Member 2 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Aniket Singh"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Aniket Singh</h3>
+                            <p class="text-gray-600">Co-Team Lead</p>
+                        </div>
+
+                        <!-- Team Member 3 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Ravi Patel"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Ravi Patel</h3>
+                            <p class="text-gray-600">Tech Specialist</p>
+                        </div>
+
+                        <!-- Team Member 4 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Pooja Yadav"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Pooja Yadav</h3>
+                            <p class="text-gray-600">Graphics & Design</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="cinecraft" class="team-panel min-w-full">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="John Doe"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">John Doe</h3>
+                            <p class="text-gray-600">Tech Specialist</p>
+                        </div>
+                        <!-- Team Member 1 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Anant Pawar"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Vaishnavi Verma</h3>
+                            <p class="text-gray-600">Team Lead</p>
+                        </div>
+
+                        <!-- Team Member 2 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Aniket Singh"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Aniket Singh</h3>
+                            <p class="text-gray-600">Co-Team Lead</p>
+                        </div>
+
+                        <!-- Team Member 3 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Ravi Patel"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Ravi Patel</h3>
+                            <p class="text-gray-600">Tech Specialist</p>
+                        </div>
+
+                        <!-- Team Member 4 -->
+                        <div class="team-custom-card bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                            <img src="/assets/pg.jpg" alt="Pooja Yadav"
+                                class="team-custom-image mx-auto mb-4 rounded-full w-24 h-24 object-cover">
+                            <h3 class="team-name text-lg font-semibold text-gray-800">Pooja Yadav</h3>
+                            <p class="text-gray-600">Graphics & Design</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+
+        // JavaScript for team section navigation
+        function showTeam(teamId) {
+            const teamPanels = document.querySelectorAll('.team-panel');
+            teamPanels.forEach(panel => (panel.style.display = 'none'));
+            document.getElementById(teamId).style.display = 'block';
+
+            const buttons = document.querySelectorAll('.team-button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[onclick="showTeam('${teamId}')"]`).classList.add('active');
+        }
+
+        // Set default team on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            showTeam('lead');
+        });
+
+
+        function showTeam(team) {
+            const panels = document.querySelectorAll('.team-panel');
+            const buttons = document.querySelectorAll('.team-button');
+            const teamContent = document.getElementById('teamContent');
+
+            // Hide all panels
+            panels.forEach(panel => panel.style.display = 'none');
+
+            // Remove active class from all buttons
+            buttons.forEach(button => button.classList.remove('active'));
+
+            // Show the selected team panel
+            document.getElementById(team).style.display = 'block';
+
+            // Add active class to the clicked button
+            const activeButton = Array.from(buttons).find(button => button.textContent.toLowerCase() === team);
+            activeButton.classList.add('active');
+        }
+        
+
+
+        // Initialize by showing the 'lead' team by default
+        document.addEventListener('DOMContentLoaded', function () {
+            showTeam('lead');
+        });
+    </script>
+</body>
+
+</html>
